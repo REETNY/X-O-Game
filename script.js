@@ -44,8 +44,8 @@ let inputO;
 let index;
 
 // a variable used to store the class value
-let X = `x-input`;
-let O = `o-input`;
+let X;
+let O;
 
 // adding event listener to each cell
 cells.forEach( (cell) => {
@@ -160,17 +160,23 @@ function checkDraw(){
 // help to check if win or draw message
 function lookUp(){
     if(msg){
-
+        O = "";
+        X = "";
         setTimeout( () => {
             appCont.style.display = `none`;
-        }, 3000)
+        }, 2000)
         lastMenu.style.display = `flex`;
         outPutMsg.innerText = msg;
+        cells.forEach( (cell) => {
+            cell.style.cursor = `not-allowed`
+        })
     }
 }
 
 
 restartBtn.addEventListener("click", () => {
+    X = `x-input`;
+    O = `o-input`;
     appCont.style.display = `none`
     msg = "";
     firstMenu.style.display = `flex`;
@@ -191,3 +197,9 @@ restartBtn.addEventListener("click", () => {
 endGameBtn.addEventListener("click", () => {
     location.reload();
 });
+
+
+window.onload = () => {
+    X = `x-input`;
+    O = `o-input`;
+}
