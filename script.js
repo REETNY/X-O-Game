@@ -157,12 +157,15 @@ function checkDraw(){
     }
 }
 
+// intializing the timeout function to a variable
+let myTime;
+
 // help to check if win or draw message
 function lookUp(){
     if(msg){
         O = "";
         X = "";
-        setTimeout( () => {
+        myTime = setTimeout( () => {
             appCont.style.display = `none`;
         }, 2000)
         lastMenu.style.display = `flex`;
@@ -175,6 +178,7 @@ function lookUp(){
 
 
 restartBtn.addEventListener("click", () => {
+    clearTimeout(myTime);
     X = `x-input`;
     O = `o-input`;
     appCont.style.display = `none`
