@@ -64,6 +64,7 @@ main{
 .chooseType article{
     font-size: 30px;
     font-weight: 700;
+    text-align: center;
 }
 
 .chooseType .btns{
